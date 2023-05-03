@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className="navbar mb-4 bg-base-100">
@@ -58,22 +60,26 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li className="text-xl font-bold text-amber-900">
-            <a>Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li className="text-xl font-bold">
-            <a>Our Chef</a>
+            <Link to="/chef">Our Chef</Link>
           </li>
           <li className="text-xl font-bold">
-            <a>Our Menu</a>
+            <Link to="/menu">Our Menu</Link>
           </li>
           <li className="text-xl font-bold">
-            <a>Home Delivery</a>
+            <Link to="/delivery">Home Delivery</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn-brown btn mr-2">Login</a>
-        <a className="btn-brown btn">Sign Up</a>
+        <Link to="/login" className="btn-brown btn mr-2">
+          Login
+        </Link>
+        <Link to="/register" className="btn-brown btn">
+          Sign Up
+        </Link>
       </div>
     </div>
   );
