@@ -1,12 +1,16 @@
 import { Outlet } from "react-router-dom";
+import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 
 const Main = () => {
   return (
-    <div className="container mx-auto">
+    <>
       <Header />
-      <Outlet />
-    </div>
+      <div className="container mx-auto">
+        <Outlet />
+      </div>
+      <Footer />
+    </>
   );
 };
 
