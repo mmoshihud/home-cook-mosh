@@ -1,5 +1,6 @@
+import React from "react";
+const Chefs = React.lazy(() => import("../../components/chefs/Chefs"));
 import { useLoaderData } from "react-router-dom";
-import Chefs from "../../components/chefs/Chefs";
 
 const Home = () => {
   const chefs = useLoaderData();
@@ -28,7 +29,9 @@ const Home = () => {
       <h1 className="mb-8 text-center text-2xl font-bold">
         Explore Recipe by Our Chefs
       </h1>
-      <Chefs chefs={chefs} />
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <Chefs chefs={chefs} />
+      </React.Suspense>
     </>
   );
 };

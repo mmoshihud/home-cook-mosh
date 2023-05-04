@@ -11,7 +11,6 @@ const Chefs = (props) => {
   const handleFavorite = (id) => {
     toast("Nice! successfully added to Favorites");
     setCountFavorite([...countFavorite, id]);
-    console.log(countFavorite);
   };
   return (
     <div className="grid grid-cols-3 gap-8">
@@ -76,7 +75,7 @@ const Chefs = (props) => {
                 </button>
                 <ToastContainer
                   position="top-center"
-                  autoClose={3000}
+                  autoClose={1300}
                   hideProgressBar={false}
                   newestOnTop={false}
                   closeOnClick
