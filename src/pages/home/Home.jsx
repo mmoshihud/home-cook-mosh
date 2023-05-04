@@ -1,6 +1,8 @@
-import Recipe from "../../components/recipe/Recipe";
+import { useLoaderData } from "react-router-dom";
+import Chefs from "../../components/chefs/Chefs";
 
 const Home = () => {
+  const chefs = useLoaderData();
   return (
     <>
       <div className="carousel-center carousel rounded-box mb-8">
@@ -26,7 +28,7 @@ const Home = () => {
       <h1 className="mb-8 text-center text-2xl font-bold">
         Explore Recipe by Our Chefs
       </h1>
-      <Recipe />
+      <Chefs chefs={chefs} />
     </>
   );
 };
