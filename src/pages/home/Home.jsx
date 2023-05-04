@@ -26,7 +26,7 @@ const Home = () => {
           />
         </div>
       </div>
-      <h1 className="mb-8 text-center text-2xl font-bold">
+      <h1 className="mb-8 text-center text-5xl font-extrabold">
         Explore Recipe by Our Chefs
       </h1>
       <React.Suspense fallback={<div>Loading...</div>}>

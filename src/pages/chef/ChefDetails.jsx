@@ -18,10 +18,10 @@ const ChefDetails = () => {
         <img
           src={chefDetails.imageURL}
           alt="Chef"
-          className="h-64 w-64 rounded-full object-cover"
+          className="h-80 w-80 rounded-full object-cover"
         />
         <h2 className="text-4xl font-bold">{chefDetails.name}</h2>
-        <p className="w-2/3 text-center text-xl">{chefDetails.bio}</p>
+        <p className="w-2/3 text-center text-2xl">{chefDetails.bio}</p>
         <div className="text-lg font-bold">{chefDetails.likes} likes</div>
         <div className="text-lg font-bold">
           {chefDetails.num_recipes} recipes

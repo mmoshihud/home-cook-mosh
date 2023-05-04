@@ -17,12 +17,12 @@ const Chefs = (props) => {
       {props.chefs.map((chef) => (
         <div key={chef.id} className="rounded shadow-lg">
           <img
-            className="w-full"
-            src="https://preview.milingona.co/themes/bakery/main/wp-content/uploads/2017/12/slide-1.jpg"
+            className="h-96 w-full object-cover"
+            src={chef.imageURL}
             alt="Chef Picture"
           />
           <div className="px-6 py-4">
-            <div className="mb-2 text-xl font-bold">{chef.name}</div>
+            <div className="mb-2 text-4xl font-bold">{chef.name}</div>
             <div className="my-4">
               <div className="flex items-center space-x-1">
                 <span className="mr-2">
@@ -31,7 +31,7 @@ const Chefs = (props) => {
                     icon={faClock}
                   />
                 </span>
-                <p className="text-xl font-semibold">
+                <p className="text-xl font-normal">
                   {chef.experience_years} Years of Experience
                 </p>
               </div>
@@ -42,7 +42,7 @@ const Chefs = (props) => {
                     icon={faGlobe}
                   />
                 </span>
-                <p className="text-xl font-semibold">
+                <p className="text-xl font-normal">
                   {chef.num_recipes} Recipes
                 </p>
               </div>
@@ -53,7 +53,7 @@ const Chefs = (props) => {
                     icon={faThumbsUp}
                   />
                 </span>
-                <p className="text-xl font-semibold">{chef.likes}</p>
+                <p className="text-xl font-normal">{chef.likes}</p>
               </div>
               <div className="mb-4 flex items-center space-x-1">
                 <span className="mr-2">
@@ -67,8 +67,8 @@ const Chefs = (props) => {
                   onClick={() => handleFavorite(chef.id)}
                   className={
                     countFavorite.find((x) => chef.id === x)
-                      ? "cursor-not-allowed text-xl font-semibold"
-                      : "text-xl font-semibold"
+                      ? "cursor-not-allowed text-xl font-normal"
+                      : "text-xl font-normal"
                   }
                 >
                   Add to Favorite
@@ -88,7 +88,7 @@ const Chefs = (props) => {
               </div>
               <Link
                 to={`/chef/${chef.id}`}
-                className="block w-full rounded-xl border-2 border-amber-900 bg-amber-900 px-5 py-2 text-center text-xl font-bold text-white hover:bg-transparent hover:text-amber-900"
+                className="btn-brown block w-full px-5 py-2 text-center text-xl font-medium"
               >
                 View Recipes
               </Link>
