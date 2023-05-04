@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer class="footer mt-8 bg-amber-900 p-10 text-white">
+    <footer className="footer mt-8 bg-amber-900 p-10 text-white">
       <div>
         <Link className="btn-ghost btn text-xl normal-case">
           Home Cook by Mosh
@@ -10,25 +10,25 @@ const Footer = () => {
         <p>Providing quality food service since 2023</p>
       </div>
       <div>
-        <span class="footer-title">Services</span>
-        <Link to="/chefs" class="link-hover link">
+        <span className="footer-title">Services</span>
+        <Link to="/chefs" className="link-hover link">
           Chef
         </Link>
-        <Link class="link-hover link">Recipe</Link>
+        <Link className="link-hover link">Recipe</Link>
       </div>
       <div>
-        <span class="footer-title">Company</span>
-        <Link to="/about-us" class="link-hover link">
+        <span className="footer-title">Company</span>
+        <Link to="/about-us" className="link-hover link">
           About us
         </Link>
-        <Link to="/blog" class="link-hover link">
+        <Link to="/blog" className="link-hover link">
           Blog
         </Link>
       </div>
       <div>
-        <span class="footer-title">Legal</span>
-        <Link class="link-hover link">Terms of use</Link>
-        <Link class="link-hover link">Privacy policy</Link>
+        <span className="footer-title">Legal</span>
+        <Link className="link-hover link">Terms of use</Link>
+        <Link className="link-hover link">Privacy policy</Link>
       </div>
     </footer>
   );

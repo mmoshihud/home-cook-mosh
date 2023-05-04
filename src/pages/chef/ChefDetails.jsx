@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import Recipe from "../../components/recipe/Recipe";
 
 const ChefDetails = () => {
   const { id } = useParams();
@@ -29,50 +30,7 @@ const ChefDetails = () => {
           {chefDetails.experience_years} years of experience
         </div>
       </div>
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
-          <tr>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-            >
-              Recipe Name
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-            >
-              Ingredients
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-            >
-              Cooking Method
-            </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-            >
-              Rating
-            </th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-gray-200 bg-white">
-          {recipe.map((recipe) => (
-            <tr key={recipe.id}>
-              <td className="whitespace-nowrap px-6 py-4">
-                {recipe.recipe_name}
-              </td>
-              <td className="whitespace-nowrap px-6 py-4">
-                {recipe.ingredients[0] + recipe.ingredients[1]} etc.
-              </td>
-              <td className="px-6 py-4">{recipe.cooking_method}</td>
-              <td className="whitespace-nowrap px-6 py-4">{recipe.rating}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Recipe recipes={recipe} />
     </>
   );
 };

@@ -1,9 +1,18 @@
 import { faClock, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faGlobe, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Chefs = (props) => {
+  const [countFavorite, setCountFavorite] = useState([]);
+  const handleFavorite = (id) => {
+    toast("Nice! successfully added to Favorites");
+    setCountFavorite([...countFavorite, id]);
+    console.log(countFavorite);
+  };
   return (
     <div className="grid grid-cols-3 gap-8">
       {props.chefs.map((chef) => (
@@ -47,14 +56,36 @@ const Chefs = (props) => {
                 </span>
                 <p className="text-xl font-semibold">{chef.likes}</p>
               </div>
-              <div className="mb-4 flex cursor-pointer items-center space-x-1">
+              <div className="mb-4 flex items-center space-x-1">
                 <span className="mr-2">
                   <FontAwesomeIcon
                     className="text-xl text-amber-900"
                     icon={faHeart}
                   />
                 </span>
-                <p className="text-xl font-semibold">Add to Favorite</p>
+                <button
+                  disabled={countFavorite.find((x) => chef.id === x)}
+                  onClick={() => handleFavorite(chef.id)}
+                  className={
+                    countFavorite.find((x) => chef.id === x)
+                      ? "cursor-not-allowed text-xl font-semibold"
+                      : "text-xl font-semibold"
+                  }
+                >
+                  Add to Favorite
+                </button>
+                <ToastContainer
+                  position="top-center"
+                  autoClose={3000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="dark"
+                />
               </div>
               <Link
                 to={`/chef/${chef.id}`}
