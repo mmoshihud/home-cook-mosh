@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -61,17 +61,61 @@ const Header = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li className="text-xl font-bold text-amber-900">
-            <Link to="/">Home</Link>
+          <li className="text-xl font-bold">
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isActive
+                  ? "text-amber-900"
+                  : isPending
+                  ? "pending"
+                  : "text-gray-500"
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
           </li>
           <li className="text-xl font-bold">
-            <Link to="/chefs">Our Chef</Link>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isActive
+                  ? "text-amber-900"
+                  : isPending
+                  ? "pending"
+                  : "text-gray-500"
+              }
+              to="/chefs"
+            >
+              Our Chef
+            </NavLink>
           </li>
           <li className="text-xl font-bold">
-            <Link to="/menu">Our Menu</Link>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isActive
+                  ? "text-amber-900"
+                  : isPending
+                  ? "pending"
+                  : "text-gray-500"
+              }
+              to="/menu"
+            >
+              Our Menu
+            </NavLink>
           </li>
           <li className="text-xl font-bold">
-            <Link to="/delivery">Home Delivery</Link>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isActive
+                  ? "text-amber-900"
+                  : isPending
+                  ? "pending"
+                  : "text-gray-500"
+              }
+              to="/delivery"
+            >
+              Home Delivery
+            </NavLink>
           </li>
         </ul>
       </div>

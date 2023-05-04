@@ -1,4 +1,4 @@
-import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { faClock, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faGlobe, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -38,7 +38,7 @@ const Chefs = (props) => {
                   {chef.num_recipes} Recipes
                 </p>
               </div>
-              <div className="mb-4 flex items-center space-x-1">
+              <div className="flex items-center space-x-1">
                 <span className="mr-2">
                   <FontAwesomeIcon
                     className="text-xl text-amber-900"
@@ -46,6 +46,15 @@ const Chefs = (props) => {
                   />
                 </span>
                 <p className="text-xl font-semibold">{chef.likes}</p>
+              </div>
+              <div className="mb-4 flex cursor-pointer items-center space-x-1">
+                <span className="mr-2">
+                  <FontAwesomeIcon
+                    className="text-xl text-amber-900"
+                    icon={faHeart}
+                  />
+                </span>
+                <p className="text-xl font-semibold">Add to Favorite</p>
               </div>
               <Link
                 to={`/chef/${chef.id}`}
