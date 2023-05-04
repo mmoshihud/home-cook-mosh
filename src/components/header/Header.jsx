@@ -98,23 +98,9 @@ const Header = () => {
                   ? "pending"
                   : "text-gray-500"
               }
-              to="/menu"
+              to="/blog"
             >
-              Our Menu
-            </NavLink>
-          </li>
-          <li className="text-xl font-bold">
-            <NavLink
-              className={({ isActive, isPending }) =>
-                isActive
-                  ? "text-amber-900"
-                  : isPending
-                  ? "pending"
-                  : "text-gray-500"
-              }
-              to="/delivery"
-            >
-              Home Delivery
+              Blog
             </NavLink>
           </li>
         </ul>

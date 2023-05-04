@@ -6,6 +6,7 @@ import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Main from "../layouts/Main";
 import SignUp from "../pages/sign-up/SignUp";
+import Blog from "../pages/blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
         loader: () => fetch("https://chef-backend-eta.vercel.app/chef"),
       },
       {
-        path: "/chefs",
+        path: "chefs",
         element: <ChefLists />,
         loader: () => fetch("https://chef-backend-eta.vercel.app/chef"),
       },
@@ -29,14 +30,18 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://chef-backend-eta.vercel.app/chef/${params.id}`),
       },
+      {
+        path: "blog",
+        element: <Blog />,
+      },
     ],
   },
   {
-    path: "/login",
+    path: "login",
     element: <Login />,
   },
   {
-    path: "/register",
+    path: "register",
     element: <SignUp />,
   },
 ]);
