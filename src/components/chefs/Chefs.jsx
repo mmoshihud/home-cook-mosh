@@ -2,11 +2,21 @@ import { faClock, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faGlobe, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Chefs = (props) => {
+  const navigation = useNavigation();
+
+  if (navigation.state === "loading") {
+    return (
+      <button type="button" class="bg-indigo-500" disabled>
+        <svg class="mr-3 h-5 w-5 animate-spin" viewBox="0 0 24 24"></svg>
+        Processing...
+      </button>
+    );
+  }
   const [countFavorite, setCountFavorite] = useState([]);
   const handleFavorite = (id) => {
     toast("Nice! successfully added to Favorites");
