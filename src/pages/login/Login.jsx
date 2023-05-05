@@ -6,9 +6,11 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import app from "../../utilities/firebase";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -29,6 +31,7 @@ const Login = () => {
         // The signed-in user info.
         const user = result.user;
         console.log(user);
+        navigate("/");
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       })
@@ -54,6 +57,7 @@ const Login = () => {
         // The signed-in user info.
         const user = result.user;
         console.log(user);
+        navigate("/");
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       })
@@ -69,6 +73,8 @@ const Login = () => {
         // ...
       });
   };
+  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleLoginForm = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -77,15 +83,14 @@ const Login = () => {
       setWarning("Warning: Invalid email address!");
       return;
     }
-    event.target.reset();
     setWarning("");
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+    signIn(email, password)
+      .then(() => {
+        event.target.reset();
         setError("");
         setWarning("");
         setSuccess("You have successfully Logged in");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);

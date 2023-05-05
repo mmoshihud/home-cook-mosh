@@ -10,6 +10,7 @@
 @layer base {
   :root {
     font-family: "Helvetica";
+    -webkit-font-smoothing: antialiased;
   }
 }
 .btn-brown {

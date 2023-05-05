@@ -10,6 +10,8 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import app from "../../utilities/firebase";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const SignUp = () => {
   const [error, setError] = useState("");
@@ -20,6 +22,7 @@ const SignUp = () => {
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const { createUser } = useContext(AuthContext);
 
   const handleSignUpForm = (event) => {
     event.preventDefault();
@@ -47,10 +50,9 @@ const SignUp = () => {
       setSuccess("");
       return;
     }
-    createUserWithEmailAndPassword(auth, email, password)
+    createUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photoUrl,
@@ -59,7 +61,6 @@ const SignUp = () => {
           .catch((error) => {
             console.log(error);
           });
-
         console.log(user);
         setError("");
         setWarning("");
@@ -82,6 +83,7 @@ const SignUp = () => {
         setError("");
         setWarning("");
         setSuccess("You have successfully Logged in through Google");
+        navigate("/");
       })
       .catch((error) => {
         setWarning("");
@@ -100,6 +102,7 @@ const SignUp = () => {
         setError("");
         setWarning("");
         setSuccess("You have successfully Logged in through GitHub");
+        navigate("/");
       })
       .catch((error) => {
         setWarning("");
