@@ -11,10 +11,22 @@ const Chefs = (props) => {
 
   if (navigation.state === "loading") {
     return (
-      <button type="button" class="bg-indigo-500" disabled>
-        <svg class="mr-3 h-5 w-5 animate-spin" viewBox="0 0 24 24"></svg>
-        Processing...
-      </button>
+      <div class="mx-auto w-full max-w-full rounded-md border border-blue-300 p-4 shadow">
+        <div class="flex animate-pulse space-x-4">
+          <div class="h-10 w-10 rounded-full bg-slate-700"></div>
+          <div class="flex-1 space-y-6 py-1">
+            <div class="h-2 rounded bg-slate-700"></div>
+            <div class="space-y-3">
+              <div class="grid grid-cols-3 gap-4">
+                <div class="col-span-2 h-2 rounded bg-slate-700"></div>
+                <div class="col-span-1 h-2 rounded bg-slate-700"></div>
+              </div>
+              <div class="h-2 rounded bg-slate-700"></div>
+              <div class="text-lg font-medium text-gray-600">Loading...</div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
   const [countFavorite, setCountFavorite] = useState([]);
@@ -23,7 +35,7 @@ const Chefs = (props) => {
     setCountFavorite([...countFavorite, id]);
   };
   return (
-    <div className="grid grid-cols-3 gap-8">
+    <div className="mb-8 grid grid-cols-3 gap-8">
       {props.chefs.map((chef) => (
         <div key={chef.id} className="rounded shadow-lg">
           <img
